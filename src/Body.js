@@ -15,9 +15,16 @@ export default function Body() {
     <div>
         {
 data ? data.articles.map((article,index)=>(
-    <p>Title:{article.title}</p>
+  <div>
+  <p>Title:{article.title}</p>
+  <p><img src={article.urlToImage} alt={article.name}/></p>
+  </div>
+  
+   
 )) : <p>Loading...</p>
         }
     </div>
   )
 }
+
+
