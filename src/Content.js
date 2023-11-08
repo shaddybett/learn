@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function Content({word}) {
+export default function Content() {
   return (
-    <div>Content:{word}</div>
+    <div>Content</div>
   )
 }
