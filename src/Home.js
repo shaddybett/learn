@@ -1,24 +1,79 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Home() {
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
+  const navigate = useNavigate();
+
+  function handleSubmit() {
+    // Check if both email and password are filled in
+    if (email && pass) {
+      // Navigate to the next page
+      navigate("/about");
+    } else {
+      alert("Enter valid details!");
+    }
+  }
+
+  function handleChange(event) {
+    setEmail(event.target.value);
+  }
+
+  function handleChangeB(event) {
+    setPass(event.target.value);
+  }
+
   return (
     <div>
-      <h1>WELCOME HOME</h1>
-      <input type="email" />
-      <br/>
-      <Link to={'about'}>about</Link>
-      <br/>
-      <Link to='/author'>author</Link>
-      <br/>
-      <Link to='/content'>Content</Link>
-      <br/>
-
-      
-
-      
-     
+      <h1 style={{ color: "white", justifyContent: "center", display: "flex" }}>
+        WELCOME HOME
+      </h1>
+      <br />
+      <h3 style={{ marginLeft: "500px" }}>sign in to get started</h3>
+      <div style={{}}>
+        <input
+          type="email"
+          value={email}
+          placeholder="Enter your email"
+          onChange={handleChange}
+          required=".+gmail.com"
+          style={{
+            display: "flex",
+            marginLeft: "550px",
+            marginTop: "50px",
+            borderRadius: '20px'
+          }}
+        />
+        <br />
+        <input
+          type="password"
+          value={pass}
+          placeholder="Enter your password"
+          onChange={handleChangeB}
+          style={{
+            display: "flex",
+            marginLeft: "550px",
+            marginTop: "px",
+            borderRadius: '20px'
+          }}
+        />
+        <button
+          onClick={handleSubmit}
+          style={{
+            display: "flex",
+            marginLeft: '650px',
+            marginTop: '20px',
+            backgroundColor: 'green',
+            borderRadius: '10px',
+            cursor: 'pointer'
+          }}
+        >
+          Submit
+        </button>
+      </div>
+      <br />
+   
     </div>
   );
 }
